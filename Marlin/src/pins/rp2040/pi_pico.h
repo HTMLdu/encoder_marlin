@@ -59,10 +59,10 @@
 
 
 
-#define X_ENABLE_PIN                          29
-#define X_DRIVE_1
-#define X_DRIVE_2
-#define X_ENCODE_PIN
+#define X_ENABLE_PIN                          18
+#define X_DRIVE_1                             19
+#define X_DRIVE_2                             20
+#define X_ENCODE_PIN                          21
 #define X_ISEN_PIN                            A0
 
 
@@ -77,11 +77,11 @@
 
 
 
-#define Y_ENABLE_PIN                          29
-#define Y_DRIVE_1
-#define Y_DRIVE_2
-#define Y_ENCODE_PIN
-#define Y_ISEN_PIN
+#define Y_ENABLE_PIN                          10
+#define Y_DRIVE_1                             11
+#define Y_DRIVE_2                             12
+#define Y_ENCODE_PIN                          13
+#define Y_ISEN_PIN                            A1
 
 #define Z_STEP_PIN                             5
 #define Z_DIR_PIN                              4

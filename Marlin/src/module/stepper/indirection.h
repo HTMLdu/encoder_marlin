@@ -90,15 +90,15 @@ void reset_stepper_drivers();    // Called by settings.load / settings.reset
     #define X_ENABLE_READ() bool(READ(X_ENABLE_PIN))
   #endif
   #ifndef X_DIR_INIT
-    #define X_DIR_INIT() SET_OUTPUT(X_DIR_PIN)//NEED DONE
+    //#define X_DIR_INIT() SET_OUTPUT(X_DIR_PIN)//NEED DONE
     #define X_DIR_WRITE(STATE) ENDIR_X
     #define X_DIR_READ() INVERT_DIR(X,ENDIRREAD_X )
   #endif
-  #define X_STEP_INIT() SET_OUTPUT(X_STEP_PIN)//NEED DONE
+  //#define X_STEP_INIT() SET_OUTPUT(X_STEP_PIN)//NEED DONE
   #ifndef X_STEP_WRITE
     #define X_STEP_WRITE(STATE) ENSTEP_X
   #endif
-  #define X_STEP_READ() bool(READ(X_STEP_PIN)) //NEED DONE
+  #define X_STEP_READ() bool(ENSTEPREAD_X)//Reades motor step state
 #endif
 
 // Y Stepper
@@ -112,15 +112,15 @@ void reset_stepper_drivers();    // Called by settings.load / settings.reset
     #define Y_ENABLE_READ() bool(READ(Y_ENABLE_PIN))
   #endif
   #ifndef Y_DIR_INIT
-    #define Y_DIR_INIT() SET_OUTPUT(Y_DIR_PIN)
-    #define Y_DIR_WRITE(STATE) WRITE(Y_DIR_PIN,INVERT_DIR(Y, STATE))
-    #define Y_DIR_READ() INVERT_DIR(Y, bool(READ(Y_DIR_PIN)))
+    //#define Y_DIR_INIT() SET_OUTPUT(Y_DIR_PIN)
+    #define Y_DIR_WRITE(STATE) ENDIR_Y
+    #define Y_DIR_READ() INVERT_DIR(Y, ENDIRREAD_Y))
   #endif
-  #define Y_STEP_INIT() SET_OUTPUT(Y_STEP_PIN)
+  //#define Y_STEP_INIT() SET_OUTPUT(Y_STEP_PIN)
   #ifndef Y_STEP_WRITE
-    #define Y_STEP_WRITE(STATE) WRITE(Y_STEP_PIN,STATE)
+    #define Y_STEP_WRITE(STATE) ENSTEP_Y
   #endif
-  #define Y_STEP_READ() bool(READ(Y_STEP_PIN))
+  #define Y_STEP_READ() bool(ENSTEPREAD_Y)//Reads Step state
 #endif
 
 // Z Stepper
