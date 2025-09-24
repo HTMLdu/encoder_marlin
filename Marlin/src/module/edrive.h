@@ -1,5 +1,7 @@
 #include "RP2040/fastio.h"
-#include "multicore.h"
+//#include "pico/stdlib.h"
+#include "pi_pico.h"
+#include <Arduino.h>
 
 class edrive
 {
