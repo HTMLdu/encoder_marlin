@@ -1,8 +1,5 @@
 #include "edrive.h"
-volatile bool nystep;
-volatile bool nxstep;
-bool ycurrent;
-bool xcurrent;
+
 void edrive::enstepx(bool STATE)
 {
     nxstep=STATE;
@@ -23,13 +20,12 @@ void setup1(){
     pinMode(Y_ENCODE_PIN, INPUT);
     attachInterrupt(digitalPinToAnalogIndex(X_ENCODE_PIN), XCHANGED, CHANGE);
     attachInterrupt(digitalPinToAnalogIndex(Y_ENCODE_PIN), YCHANGED, CHANGE);
-
 }
 
 void loop1(){
     if (nystep != ycurrent){
         digitalWrite(Y_DRIVE_1, ydirection ? HIGH : LOW);
-        digitalWrite(X_DRIVE_2, ydirection ? LOW : HIGH);
+        digitalWrite(Y_DRIVE_2, ydirection ? LOW : HIGH);
 
     }
     if (nxstep != xcurrent){
@@ -39,9 +35,13 @@ void loop1(){
 }
 
 void XCHANGED(){
-
+    digitalWrite(X_DRIVE_1, LOW);
+    digitalWrite(X_DRIVE_2, LOW);
+    xcurrent = digitalRead(X_ENCODE_PIN);
 
 }
 void YCHANGED(){
-
+    digitalWrite(Y_DRIVE_1, LOW);
+    digitalWrite(Y_DRIVE_2, LOW);
+    ycurrent = digitalRead(Y_ENCODE_PIN);
 }
