@@ -2,6 +2,10 @@
 //#include "pico/stdlib.h"
 #include "pi_pico.h"
 #include <Arduino.h>
+#include "../inc/MarlinConfig.h"
+#include "../lcd/marlinui.h"
+#include "../MarlinCore.h"
+
 bool xdirection;
 bool ydirection;
 volatile bool nystep;

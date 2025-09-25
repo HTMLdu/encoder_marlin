@@ -75,7 +75,7 @@
   #define Y_CS_PIN                            29
 #endif
 
-
+#define DRV_ERROR_PIN                         9
 
 #define Y_ENABLE_PIN                          10
 #define Y_DRIVE_1                             11

@@ -20,6 +20,7 @@ void setup1(){
     pinMode(Y_ENCODE_PIN, INPUT);
     attachInterrupt(digitalPinToAnalogIndex(X_ENCODE_PIN), XCHANGED, CHANGE);
     attachInterrupt(digitalPinToAnalogIndex(Y_ENCODE_PIN), YCHANGED, CHANGE);
+    attachInterrupt(digitalPinToAnalogIndex(DRV_ERROR_PIN), DRV_FAULT, FALLING);
 }
 
 void loop1(){
@@ -44,4 +45,13 @@ void YCHANGED(){
     digitalWrite(Y_DRIVE_1, LOW);
     digitalWrite(Y_DRIVE_2, LOW);
     ycurrent = digitalRead(Y_ENCODE_PIN);
+}
+void DRV_FAULT(){
+    digitalWrite(X_DRIVE_1, LOW);
+    digitalWrite(X_DRIVE_2, LOW);
+    digitalWrite(Y_DRIVE_1, LOW);
+    digitalWrite(Y_DRIVE_2, LOW);
+    SERIAL_ECHOPGM(" driver error detected!");
+
+      kill(F("Driver error"));
 }
