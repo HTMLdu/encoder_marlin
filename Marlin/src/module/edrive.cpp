@@ -1,5 +1,15 @@
 #include "edrive.h"
+void XCHANGED(){
+    digitalWrite(X_DRIVE_1, LOW);
+    digitalWrite(X_DRIVE_2, LOW);
+    xcurrent = digitalRead(X_ENCODE_PIN);
 
+}
+void YCHANGED(){
+    digitalWrite(Y_DRIVE_1, LOW);
+    digitalWrite(Y_DRIVE_2, LOW);
+    ycurrent = digitalRead(Y_ENCODE_PIN);
+}
 void edrive::enstepx(bool STATE)
 {
     nxstep=STATE;
@@ -18,8 +28,8 @@ void setup1(){
     pinMode(Y_DRIVE_2, OUTPUT);
     pinMode(X_ENCODE_PIN, INPUT);
     pinMode(Y_ENCODE_PIN, INPUT);
-    attachInterrupt(digitalPinToAnalogIndex(X_ENCODE_PIN), XCHANGED, CHANGE);
-    attachInterrupt(digitalPinToAnalogIndex(Y_ENCODE_PIN), YCHANGED, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(X_ENCODE_PIN), XCHANGED, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(Y_ENCODE_PIN), YCHANGED, CHANGE);
 }
 
 void loop1(){
@@ -34,14 +44,3 @@ void loop1(){
     }
 }
 
-void XCHANGED(){
-    digitalWrite(X_DRIVE_1, LOW);
-    digitalWrite(X_DRIVE_2, LOW);
-    xcurrent = digitalRead(X_ENCODE_PIN);
-
-}
-void YCHANGED(){
-    digitalWrite(Y_DRIVE_1, LOW);
-    digitalWrite(Y_DRIVE_2, LOW);
-    ycurrent = digitalRead(Y_ENCODE_PIN);
-}

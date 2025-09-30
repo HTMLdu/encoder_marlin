@@ -22,6 +22,7 @@
 #pragma once
 
 #include "env_validate.h"
+#include "../../core/macros.h"
 
 #define BOARD_INFO_NAME "Pi_Pico"
 #define DEFAULT_MACHINE_NAME "Pi_Pico"

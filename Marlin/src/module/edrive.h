@@ -1,6 +1,6 @@
-#include "RP2040/fastio.h"
+#include "../HAL/RP2040/fastio.h"
 //#include "pico/stdlib.h"
-#include "pi_pico.h"
+#include "../pins/rp2040/pi_pico.h"
 #include <Arduino.h>
 bool xdirection;
 bool ydirection;

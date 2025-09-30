@@ -68,7 +68,7 @@
  *
  */
 #include "../../inc/MarlinConfig.h"
-#include "edrive.h"
+#include "../edrive.h"
 
 #if HAS_TRINAMIC_CONFIG
   #include "trinamic.h"
