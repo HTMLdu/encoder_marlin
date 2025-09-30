@@ -84,7 +84,7 @@
 #define Y_ISEN_PIN                            A1
 
 #define Z_STEP_PIN                             5
-#define Z_DIR_PIN                              4
+#define Z_DIR_PIN                              4 //connect this pin to endstop pin and to solenoid
 #define Z_ENABLE_PIN                           7
 #ifndef Z_CS_PIN
   #define Z_CS_PIN                             4
